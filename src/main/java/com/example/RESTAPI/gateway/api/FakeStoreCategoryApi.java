@@ -6,5 +6,6 @@ import retrofit2.http.GET;
 
 public interface FakeStoreCategoryApi {
     @GET("/products/category")
-    Call<FakeStoreCategoryResponseDTO> getAllCategories();
+    //Each Call represents a single http request and response pair
+    Call<FakeStoreCategoryResponseDTO> getAllFakeCategories();
 }

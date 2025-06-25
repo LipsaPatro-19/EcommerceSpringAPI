@@ -1,7 +1,8 @@
 package com.example.RESTAPI.services;
 
+import com.example.RESTAPI.dto.CategoryDTO;
 import com.example.RESTAPI.gateway.ICategoryGateway;
-
+import java.io.IOException;
 import java.util.List;
 
 public class FakeCategoryService implements ICategoryService{
@@ -11,7 +12,7 @@ public class FakeCategoryService implements ICategoryService{
         this.categoryGateway=_categoryGateway;
     }
     @Override
-    public List<String> getAllCategories(){
-        return List.of();
+    public List<CategoryDTO> getAllCategories() throws IOException {
+        return this.categoryGateway.getAllCategories();
     }
 }
