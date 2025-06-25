@@ -2,9 +2,12 @@ package com.example.RESTAPI.services;
 
 import com.example.RESTAPI.dto.CategoryDTO;
 import com.example.RESTAPI.gateway.ICategoryGateway;
+import org.springframework.stereotype.Service;
+
 import java.io.IOException;
 import java.util.List;
 
+@Service
 public class FakeCategoryService implements ICategoryService{
 
     private final ICategoryGateway categoryGateway;
