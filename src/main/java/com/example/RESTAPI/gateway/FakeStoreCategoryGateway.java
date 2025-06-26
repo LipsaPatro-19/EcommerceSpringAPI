@@ -2,6 +2,8 @@ package com.example.RESTAPI.gateway;
 
 import com.example.RESTAPI.dto.CategoryDTO;
 import com.example.RESTAPI.dto.FakeStoreCategoryResponseDTO;
+import com.example.RESTAPI.dto.FakeStoreProductOfCatResDTO;
+import com.example.RESTAPI.dto.ProductDTO;
 import com.example.RESTAPI.gateway.api.FakeStoreCategoryApi;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +32,24 @@ public class FakeStoreCategoryGateway implements ICategoryGateway{
         return response.getCategories().stream()
                 .map(category->CategoryDTO.builder()
                         .name(category)
+                        .build())
+                .toList();
+    }
+
+    @Override
+    public List<ProductDTO> getAllProductOfCat(String type)  throws IOException {
+        FakeStoreProductOfCatResDTO response= this.fakeStoreCategoryApi.getProductsOfCategory(type).execute().body();
+
+        if(response==null){
+            throw new IOException("Failed to fetch products of a category from Fakestore API");
+        }
+
+        return response.getProducts().stream()
+                .map(product->ProductDTO.builder()
+                        .brand(product.getBrand())
+                        .title(product.getTitle())
+                        .price(product.getPrice())
+                        .discount(product.getDiscount())
                         .build())
                 .toList();
     }
