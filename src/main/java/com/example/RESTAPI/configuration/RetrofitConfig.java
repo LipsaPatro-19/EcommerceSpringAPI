@@ -1,6 +1,8 @@
 package com.example.RESTAPI.configuration;
 
+import com.example.RESTAPI.gateway.FakeStoreProductGateway;
 import com.example.RESTAPI.gateway.api.FakeStoreCategoryApi;
+import com.example.RESTAPI.gateway.api.FakeStoreProductAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,5 +25,10 @@ public class RetrofitConfig {
     @Bean
     public FakeStoreCategoryApi fakeStoreCategoryApi(Retrofit retrofit){
         return retrofit.create(FakeStoreCategoryApi.class);
+    }
+
+    @Bean
+    public FakeStoreProductAPI fakeStoreProductAPI(Retrofit retrofit){
+        return retrofit.create(FakeStoreProductAPI.class);
     }
 }

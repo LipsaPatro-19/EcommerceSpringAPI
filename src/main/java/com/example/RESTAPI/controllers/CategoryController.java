@@ -3,6 +3,7 @@ package com.example.RESTAPI.controllers;
 import com.example.RESTAPI.dto.CategoryDTO;
 import com.example.RESTAPI.dto.ProductDTO;
 import com.example.RESTAPI.services.ICategoryService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,8 +21,12 @@ public class CategoryController {
      }
 
      @GetMapping
-    public List<CategoryDTO> getAllCategories() throws IOException{
-         return this.categoryService.getAllCategories();
+    public ResponseEntity<List<CategoryDTO>> getAllCategories() throws IOException{
+         List<CategoryDTO> result= this.categoryService.getAllCategories();
+
+         //returns with specific status code, we can modify the status codes with the help of ResponseEntity which is from
+         //Spring framework
+         return ResponseEntity.ok(result);
      }
 
      @GetMapping("/products")

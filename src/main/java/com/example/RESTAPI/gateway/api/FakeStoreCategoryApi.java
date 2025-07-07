@@ -2,7 +2,6 @@ package com.example.RESTAPI.gateway.api;
 
 import com.example.RESTAPI.dto.FakeStoreCategoryResponseDTO;
 import com.example.RESTAPI.dto.FakeStoreProductOfCatResDTO;
-//import org.springframework.web.bind.annotation.RequestParam;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
