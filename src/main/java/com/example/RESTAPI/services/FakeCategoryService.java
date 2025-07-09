@@ -3,6 +3,7 @@ package com.example.RESTAPI.services;
 import com.example.RESTAPI.dto.CategoryDTO;
 import com.example.RESTAPI.dto.ProductDTO;
 import com.example.RESTAPI.gateway.ICategoryGateway;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.List;
 public class FakeCategoryService implements ICategoryService{
 
     private final ICategoryGateway categoryGateway;
-    public FakeCategoryService(ICategoryGateway _categoryGateway){
+    public FakeCategoryService(@Qualifier("fakeStoreTemplateGateway") ICategoryGateway _categoryGateway){
         this.categoryGateway=_categoryGateway;
     }
     @Override
