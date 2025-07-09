@@ -41,4 +41,7 @@ It defines default class to inject
 
 @Qualifier - It is specific
 
+Tried making http call using RestTemplate of Spring.
+Also applied Adapter pattern i guess like mapping a particular object to a different required object or list of object.
+
 
