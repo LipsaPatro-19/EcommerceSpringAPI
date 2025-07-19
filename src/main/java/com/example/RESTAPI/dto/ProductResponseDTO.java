@@ -14,7 +14,7 @@ public class ProductResponseDTO {
     private String description;
     private Integer discount;
     private String model;
-    private Integer id;
+    private Long id;
     private String title;
     private String category;
     private String brand;

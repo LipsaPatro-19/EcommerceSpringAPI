@@ -44,4 +44,7 @@ It defines default class to inject
 Tried making http call using RestTemplate of Spring.
 Also applied Adapter pattern i guess like mapping a particular object to a different required object or list of object.
 
-
+Clien t <--> Controller (JSON)
+Controller <--> Service (DTO)
+Service <--> Repository (Entities) MapperClass for converting DTO to Entity or Entity to DTO
+Repository <--> Database (SQL)
