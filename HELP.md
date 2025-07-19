@@ -44,7 +44,21 @@ It defines default class to inject
 Tried making http call using RestTemplate of Spring.
 Also applied Adapter pattern i guess like mapping a particular object to a different required object or list of object.
 
-Clien t <--> Controller (JSON)
+Client <--> Controller (JSON)
 Controller <--> Service (DTO)
 Service <--> Repository (Entities) MapperClass for converting DTO to Entity or Entity to DTO
 Repository <--> Database (SQL)
+
+-----------
+Repository ---- DB (SQL)
+DB ---- Repository >>>> Optional<Product> -> DB in Entity format with Optional wrapper
+possibility of null safe
+
+Optional<Entity?> - container that or may not contain not null
+It forces the developer to explicitly handle the "not found" case rather than accidentally functioning on a null value
+
+Optional<Product> Table <1,2,3,4,5>
+repo.findById(2); //works fine
+Product response= repo.findById(20) // null
+response.getColor(); // nullpointerexception - this will be thrown if we don't write the the Optional wrapper
+

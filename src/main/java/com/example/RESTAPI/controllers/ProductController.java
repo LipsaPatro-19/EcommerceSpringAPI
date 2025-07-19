@@ -2,6 +2,7 @@ package com.example.RESTAPI.controllers;
 
 import com.example.RESTAPI.dto.ProductResponseDTO;
 import com.example.RESTAPI.services.IProductService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ public class ProductController {
 
     private final IProductService productService;
 
-    public ProductController(IProductService _productService){
+    public ProductController(@Qualifier("ProductService") IProductService _productService){
         this.productService=_productService;
     }
     @GetMapping("/{id}")
@@ -21,7 +22,8 @@ public class ProductController {
         return ResponseEntity.created(null).body(result);
     }
 
+    @PostMapping("/")
     public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody ProductResponseDTO dto){
-        return ResponseEntity.ok(productService.create(dto));
+        return ResponseEntity.ok(productService.createProduct(dto));
     }
 }
