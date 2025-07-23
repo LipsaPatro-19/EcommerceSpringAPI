@@ -1,7 +1,9 @@
 package com.example.RESTAPI.mapper;
 
+import com.example.RESTAPI.dto.CategoryDTO;
 import com.example.RESTAPI.dto.ProductDTO;
 import com.example.RESTAPI.dto.ProductResponseDTO;
+import com.example.RESTAPI.dto.ProductWithCategoryDTO;
 import com.example.RESTAPI.entity.Category;
 import com.example.RESTAPI.entity.Product;
 
@@ -34,6 +36,23 @@ public class ProductMapper {
                 .category(category)
                 .brand(dto.getBrand())
                 .popular(dto.getPopular())
+                .build();
+    }
+
+    public static ProductWithCategoryDTO toProductWithCategoryDTO(Product product){
+        CategoryDTO catdto=GetAllCategoriesMapper.toCategoryDTOO(product.getCategory());
+        return ProductWithCategoryDTO.builder()
+                .id(product.getId())
+                .image(product.getImage())
+                .color(product.getColor())
+                .price(product.getPrice())
+                .description(product.getDescription())
+                .discount(product.getDiscount())
+                .model(product.getModel())
+                .title(product.getTitle())
+                .brand(product.getBrand())
+                .popular(product.getPopular())
+                .category(catdto)
                 .build();
     }
 }

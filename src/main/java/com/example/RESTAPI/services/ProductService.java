@@ -1,6 +1,7 @@
 package com.example.RESTAPI.services;
 
 import com.example.RESTAPI.dto.ProductResponseDTO;
+import com.example.RESTAPI.dto.ProductWithCategoryDTO;
 import com.example.RESTAPI.entity.Category;
 import com.example.RESTAPI.entity.Product;
 import com.example.RESTAPI.mapper.ProductMapper;
@@ -35,5 +36,10 @@ public class ProductService implements IProductService{
         Category category= catrepo.findById(dto.getCategoryId()).orElseThrow(()-> new Exception("Category not found"));
         Product saved= repo.save(ProductMapper.toEntity(dto, category));
         return ProductMapper.toDTO(saved);
+    }
+
+    public ProductWithCategoryDTO getProductWithCategory(Long id) throws Exception{
+        Product product=repo.findById(id).orElseThrow(()->new Exception("Product not found"));
+        return ProductMapper.toProductWithCategoryDTO(product);
     }
 }

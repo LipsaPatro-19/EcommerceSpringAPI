@@ -1,6 +1,7 @@
 package com.example.RESTAPI.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
@@ -26,7 +27,7 @@ public class Product extends BaseEntity{
 
     //Each product belongs to one category
     //and one category can have many products
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 }

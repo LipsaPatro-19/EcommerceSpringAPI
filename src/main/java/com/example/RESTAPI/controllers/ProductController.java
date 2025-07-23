@@ -1,6 +1,7 @@
 package com.example.RESTAPI.controllers;
 
 import com.example.RESTAPI.dto.ProductResponseDTO;
+import com.example.RESTAPI.dto.ProductWithCategoryDTO;
 import com.example.RESTAPI.services.IProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +26,11 @@ public class ProductController {
     @PostMapping("/")
     public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody ProductResponseDTO dto) throws Exception{
         return ResponseEntity.ok(productService.createProduct(dto));
+    }
+
+    @GetMapping("/{id}/details")
+    public ResponseEntity<ProductWithCategoryDTO> getProductWithCategory(@PathVariable long id) throws Exception{
+        ProductWithCategoryDTO dto= productService.getProductWithCategory(id);
+        return ResponseEntity.ok(dto);
     }
 }

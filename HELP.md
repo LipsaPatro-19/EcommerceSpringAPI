@@ -76,4 +76,31 @@ A join allows you to combine data from two or more tables based on relationship
 To represent the above line in spring JPA we have Entity Relationship Mapping
 Some annotation - @ManytoOne @OneToMany
 
+FetchType:
+EAGER
+<----->
+Hibernate: select p1_0.id,p1_0.brand,p1_0.category_id,c1_0.id,c1_0.created_at,c1_0.name,c1_0.updated_at,p1_0.color,p1_0.created_at,p1_0.description,p1_0.discount,p1_0.image,p1_0.model,p1_0.popular,p1_0.price,p1_0.title,p1_0.updated_at from product p1_0 join category c1_0 on c1_0.id=p1_0.category_id where p1_0.id=?
+
+LAZY
+<---->
+Hibernate: select p1_0.id,p1_0.brand,p1_0.category_id,p1_0.color,p1_0.created_at,p1_0.description,p1_0.discount,p1_0.image,p1_0.model,p1_0.popular,p1_0.price,p1_0.title,p1_0.updated_at from product p1_0 where p1_0.id=?
+Hibernate: select c1_0.id,c1_0.created_at,c1_0.name,c1_0.updated_at from category c1_0 where c1_0.id=?
+
+ByDefault:
+@ManyToOne > Eager
+@OneToOne > Eager
+
+@OneToMany > Lazy
+@ManyToMany > Lazy
+
+EAGER -> In Eager it will fetch the detail in one hql query using join for the JoinColumn field
+LAZY -> In Lazy it won't fetch the detail of joinColumn field except that other fields value will be fetech using first hql, where the joinColumn field is need then it will again make a second hql query to the joincolumn field value for ex when we are trying to do getCategories in mapper class of product for the category field in ProductDtoWIthCategory function
+
+UseCase: 
+-When we are having some sort of tight coupling like we need the all the detail including the joinColumn field also then we user Eager
+-When we are having some sort of loose coupling like suppose we have the category right it also has a field that have list of products, every time we don't need to load all the products of a particular category, when it is required or asked we can get the list, so in this case we can make this field's fetchType as Lazy
+
+
+
+
 

@@ -1,6 +1,7 @@
 package com.example.RESTAPI.services;
 
 import com.example.RESTAPI.dto.ProductResponseDTO;
+import com.example.RESTAPI.dto.ProductWithCategoryDTO;
 import com.example.RESTAPI.gateway.IProductGateway;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ public class FakeStoreProductService implements IProductService{
     }
 
     public ProductResponseDTO createProduct(ProductResponseDTO dto){
+        return null;
+    }
+    public ProductWithCategoryDTO getProductWithCategory(Long id) throws Exception{
         return null;
     }
 }
