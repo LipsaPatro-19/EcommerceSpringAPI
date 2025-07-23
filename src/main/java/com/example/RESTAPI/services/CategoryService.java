@@ -51,4 +51,9 @@ public class CategoryService implements ICategoryService{
         Category created= repo.save(GetAllCategoriesMapper.toEntity(categoryDTO));
         return GetAllCategoriesMapper.toCategoryDTOO(created);
     }
+
+    public CategoryDTO getByName(String name) throws Exception{
+        Category category=repo.findByName(name).orElseThrow(()-> new Exception("Category not found with name: "+ name));
+        return GetAllCategoriesMapper.toCategoryDTOO(category);
+    }
 }

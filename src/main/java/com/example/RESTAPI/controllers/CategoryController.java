@@ -20,12 +20,18 @@ public class CategoryController {
      }
 
      @GetMapping
-    public ResponseEntity<List<CategoryDTO>> getAllCategories() throws IOException{
-         List<CategoryDTO> result= this.categoryService.getAllCategories();
+    public ResponseEntity<?> getAllCategories(@RequestParam(required = false) String name) throws Exception{
+         if(name!=null && !name.isBlank()){
+             CategoryDTO dto=this.categoryService.getByName(name);
+             return ResponseEntity.ok(dto);
+         }else{
+             List<CategoryDTO> result= this.categoryService.getAllCategories();
 
-         //returns with specific status code, we can modify the status codes with the help of ResponseEntity which is from
-         //Spring framework
-         return ResponseEntity.ok(result);
+             //returns with specific status code, we can modify the status codes with the help of ResponseEntity which is from
+             //Spring framework
+             return ResponseEntity.ok(result);
+         }
+
      }
 
 //     @GetMapping("/products")
