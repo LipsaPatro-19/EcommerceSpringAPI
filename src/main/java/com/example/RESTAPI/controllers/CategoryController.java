@@ -5,10 +5,8 @@ import com.example.RESTAPI.dto.ProductDTO;
 import com.example.RESTAPI.services.ICategoryService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -34,6 +32,12 @@ public class CategoryController {
 //     public List<ProductDTO> getAllProductsOfCat(@RequestParam(defaultValue ="mobile") String category)  throws IOException {
 //         return this.categoryService.getAllProductOfCat(category);
 //     }
+
+    @PostMapping
+    public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO categoryDTO) throws IOException{
+        CategoryDTO created=this.categoryService.createCategory(categoryDTO);
+        return ResponseEntity.ok(created);
+    }
 }
 
 

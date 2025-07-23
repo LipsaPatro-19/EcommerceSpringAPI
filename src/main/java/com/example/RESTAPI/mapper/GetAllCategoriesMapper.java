@@ -26,4 +26,9 @@ public class GetAllCategoriesMapper {
                 .name(catEntity.getName())
                 .build();
     }
+    public static Category toEntity(CategoryDTO dto){
+        return Category.builder()
+                .name(dto.getName())
+                .build();
+    }
 }

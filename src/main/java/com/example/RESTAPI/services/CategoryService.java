@@ -46,4 +46,9 @@ public class CategoryService implements ICategoryService{
 //                .toList();
 //
 //    }
+
+    public CategoryDTO createCategory(CategoryDTO categoryDTO){
+        Category created= repo.save(GetAllCategoriesMapper.toEntity(categoryDTO));
+        return GetAllCategoriesMapper.toCategoryDTOO(created);
+    }
 }
