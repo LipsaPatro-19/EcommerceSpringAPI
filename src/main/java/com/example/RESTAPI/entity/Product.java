@@ -1,7 +1,11 @@
 package com.example.RESTAPI.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
+
+import java.util.Locale;
 
 @Entity
 @Getter
@@ -17,7 +21,12 @@ public class Product extends BaseEntity{
     private Integer discount;
     private String model;
     private String title;
-    private String category;
     private String brand;
     private Boolean popular;
+
+    //Each product belongs to one category
+    //and one category can have many products
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 }

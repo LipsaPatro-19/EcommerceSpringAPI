@@ -20,7 +20,7 @@ public class FakeCategoryService implements ICategoryService{
     public List<CategoryDTO> getAllCategories() throws IOException {
         return this.categoryGateway.getAllCategories();
     }
-    public List<ProductDTO> getAllProductOfCat(String category)  throws IOException {
-        return this.categoryGateway.getAllProductOfCat(category);
-    }
+//    public List<ProductDTO> getAllProductOfCat(String category)  throws IOException {
+//        return this.categoryGateway.getAllProductOfCat(category);
+//    }
 }

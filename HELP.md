@@ -62,3 +62,18 @@ repo.findById(2); //works fine
 Product response= repo.findById(20) // null
 response.getColor(); // nullpointerexception - this will be thrown if we don't write the the Optional wrapper
 
+Product Table
+<------>
+categoryId:1 instead of categoryName
+
+Category Table
+1 Footwear
+2 Electronics
+
+Product belongs to Category 
+A single category can have multiple products associated with it.
+A join allows you to combine data from two or more tables based on relationship
+To represent the above line in spring JPA we have Entity Relationship Mapping
+Some annotation - @ManytoOne @OneToMany
+
+

@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface ICategoryService {
     List<CategoryDTO>getAllCategories() throws IOException;
-    List<ProductDTO>getAllProductOfCat(String category)  throws IOException ;
+//    List<ProductDTO>getAllProductOfCat(Long id)  throws IOException ;
 }

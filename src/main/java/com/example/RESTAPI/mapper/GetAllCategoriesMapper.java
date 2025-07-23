@@ -2,6 +2,7 @@ package com.example.RESTAPI.mapper;
 
 import com.example.RESTAPI.dto.CategoryDTO;
 import com.example.RESTAPI.dto.FakeStoreCategoryResponseDTO;
+import com.example.RESTAPI.entity.Category;
 
 import java.util.List;
 
@@ -17,5 +18,12 @@ public class GetAllCategoriesMapper {
                         .name(category)
                         .build())
                 .toList();
+    }
+
+    public static CategoryDTO toCategoryDTOO(Category catEntity){
+        return CategoryDTO.builder()
+                .id(catEntity.getId())
+                .name(catEntity.getName())
+                .build();
     }
 }
