@@ -4,7 +4,7 @@ import com.example.RESTAPI.dto.ProductResponseDTO;
 import com.example.RESTAPI.dto.ProductWithCategoryDTO;
 
 public interface IProductService {
-    ProductResponseDTO getProductById(Long id) throws Exception;
+    ProductResponseDTO getProductById(Long id);
 
     ProductResponseDTO createProduct(ProductResponseDTO dto) throws Exception;
 

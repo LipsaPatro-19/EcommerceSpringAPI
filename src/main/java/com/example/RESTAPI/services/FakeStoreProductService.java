@@ -13,8 +13,12 @@ public class FakeStoreProductService implements IProductService{
         this.productGateway=_productGateway;
     }
     @Override
-    public ProductResponseDTO getProductById(Long id) throws Exception{
-        return this.productGateway.getProductById(id);
+    public ProductResponseDTO getProductById(Long id){
+        try{
+            return this.productGateway.getProductById(id);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     public ProductResponseDTO createProduct(ProductResponseDTO dto){

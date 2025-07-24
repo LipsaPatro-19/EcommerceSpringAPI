@@ -4,6 +4,7 @@ import com.example.RESTAPI.dto.ProductResponseDTO;
 import com.example.RESTAPI.dto.ProductWithCategoryDTO;
 import com.example.RESTAPI.entity.Category;
 import com.example.RESTAPI.entity.Product;
+import com.example.RESTAPI.exception.ProductNotFoundException;
 import com.example.RESTAPI.mapper.ProductMapper;
 import com.example.RESTAPI.repository.CategoryRepository;
 import com.example.RESTAPI.repository.ProductRepository;
@@ -21,12 +22,12 @@ public class ProductService implements IProductService{
         this.catrepo=catrepo;
     }
 
-    public ProductResponseDTO getProductById(Long id) throws Exception{
+    public ProductResponseDTO getProductById(Long id) {
 //        return repo.findById(id)
 //                .map(ProductMapper::toDTO)//this :: is only possible with .map otherwise we can use below implemetation as well
 //                .orElseThrow(()-> new Exception("Product not found" ));
 
-        Product product= repo.findById(id).orElseThrow(()-> new Exception("Product not found"));
+        Product product= repo.findById(id).orElseThrow(()-> new ProductNotFoundException("Product with ID "+id+"not found"));
 
         ProductResponseDTO dto= ProductMapper.toDTO(product);
 
