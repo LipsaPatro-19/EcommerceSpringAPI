@@ -1,15 +1,24 @@
+> Exception Handling
+> - is the process of detecting, managing and responding to errors.
+> - so that the application doesn't crash and recover.
+> 
+> Try catch
+> - Mulitple catches if multiple types of errors are possible
 
-Checked Exception
-- SuperClass > java.lang.Exception
-- Compile-time > must be declared with throw in a method signature or caught in a try catch block
-- IOException/FileNotFoundException
-- SQLException
-- ClassNotFoundException
-
-Unchecked Exceptions
-- SuperClass > java.lang.RunTimeException
-- NullPointerException
-- ArithmeticException
+> ExceptionHandler
+> - @ExceptionHandler > small - mid size application
+> 
+> Checked Exception
+> - SuperClass > java.lang.Exception
+> - Compile-time > must be declared with throw in a method signature or caught in a try catch block
+> - IOException/FileNotFoundException
+> - SQLException
+> - ClassNotFoundException
+> 
+> Unchecked Exceptions
+> - SuperClass > java.lang.RunTimeException
+> - NullPointerException
+> - ArithmeticException
 
 Spring ExceptionHandlerExceptionResolver - this will call the @Exception handler methods 
 
