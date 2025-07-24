@@ -15,6 +15,22 @@ Spring ExceptionHandlerExceptionResolver - this will call the @Exception handler
 
 > ControllerAdvice - GlobalExceptionHandler
 
+Flyway Migration
+-----
+Product > Production DB 6 columns
+
+database > house
+db schema > layout of your house
+
+add a new bedroom(add new table)
+kitchen > new sink > add a new column to the table
+
+Database migration > Renovation Instructions
+
+A migration is a set of instructions that allows to safely change the layout of the schema while people are still living the house
+
+Flyway Migration - open source db migration tool, like a smart renovation manager
+
 
 ## Homework
 

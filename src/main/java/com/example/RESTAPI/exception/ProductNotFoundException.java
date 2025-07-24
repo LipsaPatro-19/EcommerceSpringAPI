@@ -5,3 +5,6 @@ public class ProductNotFoundException extends RuntimeException{
      super(message);
  }
 }
+
+//Why extend RuntimeException?
+//Marks it an unchecked exception. Callers are not forced to declare or catch it.
