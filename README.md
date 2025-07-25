@@ -45,6 +45,7 @@ Flyway Migration - open source db migration tool, like a smart renovation manage
 >- Make flyway migration enable and give the versioning updated sql files location so that it can pick up those from the location while migrating
 >- create the sql files in the mentioned location with versioning prefix as 'V1__'
 >- if you are getting any error while running try deleting all the tables from db including 'flyway_schema_history' table which is created by flyway
+>- If you want to undo anything from the migration we can do it in two types one is in the paid version of flyway migration and another is the free one by creating another version file which will contain the undo sql query and then we can run the application 
 > 
 
 ## Homework
