@@ -41,6 +41,7 @@ It defines default class to inject
 
 @Qualifier - It is specific
 
+RestTemplate is class which helps us to make a http call to another service and RestTemplateBulider helps in building the RestTemplate with some basic configuration 
 Tried making http call using RestTemplate of Spring.
 Also applied Adapter pattern i guess like mapping a particular object to a different required object or list of object.
 

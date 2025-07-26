@@ -21,6 +21,6 @@ public class Category extends BaseEntity{
     //mappedBy means bidirectional relationship
     //This doesn't mean that you are trying to store a list of products inside category table
     //Telling JpA, the relationship is already owned by the product entity. So, just read from there.
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY) //this category is a field in Product entity which is mapper here in Category entity
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY) //this category is a field in Product entity which is mapped here in Category entity
     private List<Product> products;
 }
